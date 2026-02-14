@@ -1,0 +1,43 @@
+package io.github.lucasbxavier.vehiclesmaintenance.mapper;
+
+import io.github.lucasbxavier.vehiclesmaintenance.domain.entities.Maintenance;
+import io.github.lucasbxavier.vehiclesmaintenance.domain.enums.MaintenanceType;
+import io.github.lucasbxavier.vehiclesmaintenance.dto.MaintenanceRequestDTO;
+import io.github.lucasbxavier.vehiclesmaintenance.dto.MaintenanceResponseDTO;
+
+import java.time.LocalDate;
+
+public class MaintenanceMapper {
+
+    public static Maintenance toEntity(MaintenanceRequestDTO dto) {
+        Maintenance maintenance = new Maintenance();
+
+        maintenance.setVehiclePlate(dto.getVehiclePlate());
+        maintenance.setDescription(dto.getDescription());
+        maintenance.setMaintenanceType(MaintenanceType.valueOf(dto.getMaintenanceType()));
+        maintenance.setScheduledDate(LocalDate.parse(dto.getScheduledDate()));
+
+        return maintenance;
+    }
+
+    public static MaintenanceResponseDTO toResponse(Maintenance entity) {
+        return new MaintenanceResponseDTO(
+                entity.getId(),
+                entity.getVehiclePlate(),
+                entity.getDescription(),
+                entity.getMaintenanceType(),
+                entity.getStatus(),
+                entity.getScheduledDate(),
+                entity.getCompletedDate(),
+                entity.getCost(),
+                entity.getCreatedAt()
+        );
+    }
+
+    public static void updateEntity(Maintenance entity, MaintenanceRequestDTO dto) {
+        entity.setDescription(dto.getDescription());
+        entity.setMaintenanceType(MaintenanceType.valueOf(dto.getMaintenanceType()));
+        entity.setScheduledDate(LocalDate.parse(dto.getScheduledDate()));
+
+    }
+}
