@@ -4,6 +4,8 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
+import java.math.BigDecimal;
+
 @Data
 public class MaintenanceRequestDTO {
 
@@ -11,8 +13,6 @@ public class MaintenanceRequestDTO {
     @NotBlank
     private String vehiclePlate;
 
-    @NotNull
-    @NotBlank
     private String description;
 
     @NotNull
@@ -21,5 +21,17 @@ public class MaintenanceRequestDTO {
 
     @NotNull
     @NotBlank
+    private String maintenanceStatus;
+
+    @NotNull
+    @NotBlank
     private String scheduledDate;
+
+    @NotNull
+    @NotBlank
+    private String completedDate;
+
+    @NotNull
+    @NotBlank
+    private BigDecimal cost;
 }
