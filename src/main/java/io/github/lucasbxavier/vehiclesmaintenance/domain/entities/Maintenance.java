@@ -44,7 +44,7 @@ public class Maintenance {
     private LocalDateTime createdAt;
 
     @PrePersist
-    private void onCreate() {
+    public void onCreate() {
         this.createdAt = LocalDateTime.now();
     }
 }

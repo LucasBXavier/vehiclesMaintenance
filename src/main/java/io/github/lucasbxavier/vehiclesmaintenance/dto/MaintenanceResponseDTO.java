@@ -2,7 +2,9 @@ package io.github.lucasbxavier.vehiclesmaintenance.dto;
 
 import io.github.lucasbxavier.vehiclesmaintenance.domain.enums.MaintenanceStatus;
 import io.github.lucasbxavier.vehiclesmaintenance.domain.enums.MaintenanceType;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -11,18 +13,17 @@ import java.util.UUID;
 
 
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class MaintenanceResponseDTO {
 
-    private UUID id;
-    private String vehiclePlate;
-    private String description;
-    private MaintenanceType maintenanceType;
-    private MaintenanceStatus status;
-    private LocalDate scheduledDate;
-    private LocalDate completedDate;
-    private BigDecimal cost;
-    private LocalDateTime createdAt;
-
-    public MaintenanceResponseDTO(UUID id, String vehiclePlate, String description, MaintenanceType maintenanceType, MaintenanceStatus status, LocalDate scheduledDate, LocalDate completedDate, BigDecimal cost, LocalDateTime createdAt) {
-    }
+    public UUID id;
+    public String vehiclePlate;
+    public String description;
+    public MaintenanceType maintenanceType;
+    public MaintenanceStatus status;
+    public LocalDate scheduledDate;
+    public LocalDate completedDate;
+    public BigDecimal cost;
+    public LocalDateTime createdAt;
 }

@@ -12,6 +12,4 @@ import java.util.UUID;
 public interface MaintenanceRepository extends JpaRepository<Maintenance, UUID> {
 
     List<Maintenance> findByStatus(MaintenanceStatus status);
-
-    boolean existsByVehiclePlateAndStatus(String vehiclePlate, MaintenanceStatus status);
 }

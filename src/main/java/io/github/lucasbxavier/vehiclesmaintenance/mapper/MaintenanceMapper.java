@@ -43,6 +43,8 @@ public class MaintenanceMapper {
         entity.setDescription(dto.getDescription());
         entity.setMaintenanceType(MaintenanceType.valueOf(dto.getMaintenanceType()));
         entity.setScheduledDate(LocalDate.parse(dto.getScheduledDate()));
+        entity.setCompletedDate(LocalDate.parse(dto.getCompletedDate()));
+        entity.setCompletedDate(LocalDate.parse(dto.getCompletedDate()));
 
     }
 }
