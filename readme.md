@@ -131,8 +131,3 @@ mvn clean install
 mvn spring-boot:run
 ```
 6. Acesse a documentação da API (Swagger UI): `http://localhost:8080/vehicles-maintenance/swagger-ui.html`.
-
-
-## License
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
