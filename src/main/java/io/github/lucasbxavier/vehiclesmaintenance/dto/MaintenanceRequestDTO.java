@@ -31,8 +31,6 @@ public class MaintenanceRequestDTO {
     @NotBlank
     public String scheduledDate;
 
-    @NotNull
-    @NotBlank
     public String completedDate;
 
     @NotNull

@@ -8,6 +8,7 @@ import io.github.lucasbxavier.vehiclesmaintenance.dto.MaintenanceResponseDTO;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
+
 @Component
 public class MaintenanceMapper {
 
@@ -44,7 +45,6 @@ public class MaintenanceMapper {
         entity.setMaintenanceType(MaintenanceType.valueOf(dto.getMaintenanceType()));
         entity.setScheduledDate(LocalDate.parse(dto.getScheduledDate()));
         entity.setCompletedDate(LocalDate.parse(dto.getCompletedDate()));
-        entity.setCompletedDate(LocalDate.parse(dto.getCompletedDate()));
-
+        entity.setCost(dto.getCost());
     }
 }

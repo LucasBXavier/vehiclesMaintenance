@@ -72,7 +72,7 @@ class MaintenanceServiceTest {
 
     @Test
     void shouldFindByStatus() {
-        when(repository.findByStatus(MaintenanceStatus.COMPLETED))
+        when(repository.findByStatus(MaintenanceStatus.COMPLETO))
                 .thenReturn(List.of(new Maintenance()));
 
         List<Maintenance> result = service.findByStatus("COMPLETED");
@@ -82,7 +82,7 @@ class MaintenanceServiceTest {
 
     @Test
     void shouldThrowWhenStatusNotFound() {
-        when(repository.findByStatus(MaintenanceStatus.CANCELED))
+        when(repository.findByStatus(MaintenanceStatus.CANCELADO))
                 .thenReturn(List.of());
 
         assertThrows(MaintenanceNotFoundException.class,

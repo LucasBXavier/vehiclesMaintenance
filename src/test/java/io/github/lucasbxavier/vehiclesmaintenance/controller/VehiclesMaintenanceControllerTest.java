@@ -12,6 +12,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -56,8 +57,8 @@ class VehiclesMaintenanceControllerTest {
     @Test
     void shouldReturnMaintenanceById() {
         UUID id = UUID.randomUUID();
-        Object maintenance = new Object();
-        when(service.findById(id)).thenReturn(maintenance);
+        Maintenance maintenance = new Maintenance();
+        when(service.findById(id)).thenReturn(Optional.of(maintenance));
 
         ResponseEntity<?> response = controller.getMaintenanceById(id);
 

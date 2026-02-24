@@ -56,6 +56,15 @@ public class VehiclesMaintenanceController {
     }
 
     @Operation(
+            summary = "Buscar manutenção por placa do veículo",
+            description = "Busca manutenções de veículos com base na placa fornecida."
+    )
+    @GetMapping("/placaVeiculo/{vehiclePlate}")
+    public ResponseEntity<?> getMaintenanceByPlate(@PathVariable String vehiclePlate) {
+        return ResponseEntity.ok(service.findByPlate(vehiclePlate));
+    }
+
+    @Operation(
             summary = "Atualiza a manutenção",
             description = "Atualiza uma manutenção existente com base no ID necessitando do corpo do MaintenanceRequestDTO."
     )

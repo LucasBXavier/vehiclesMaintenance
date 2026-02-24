@@ -32,8 +32,8 @@ class MaintenanceMapperTest {
 
         assertEquals("ABC1234", entity.getVehiclePlate());
         assertEquals("Troca de óleo", entity.getDescription());
-        assertEquals(MaintenanceType.TIRE, entity.getMaintenanceType());
-        assertEquals(MaintenanceStatus.SCHEDULED, entity.getStatus());
+        assertEquals(MaintenanceType.PNEU, entity.getMaintenanceType());
+        assertEquals(MaintenanceStatus.AGENDADO, entity.getStatus());
         assertEquals(LocalDate.parse("2026-02-20"), entity.getScheduledDate());
         assertEquals(LocalDate.parse("2026-02-25"), entity.getCompletedDate());
         assertEquals(BigDecimal.valueOf(150), entity.getCost());
@@ -47,8 +47,8 @@ class MaintenanceMapperTest {
         entity.setId(id);
         entity.setVehiclePlate("XYZ9876");
         entity.setDescription("Revisão geral");
-        entity.setMaintenanceType(MaintenanceType.TIRE);
-        entity.setStatus(MaintenanceStatus.SCHEDULED);
+        entity.setMaintenanceType(MaintenanceType.PNEU);
+        entity.setStatus(MaintenanceStatus.AGENDADO);
         entity.setScheduledDate(LocalDate.parse("2026-01-10"));
         entity.setCompletedDate(LocalDate.parse("2026-01-12"));
         entity.setCost(BigDecimal.valueOf(900));
@@ -60,8 +60,8 @@ class MaintenanceMapperTest {
         assertEquals(id, response.getId());
         assertEquals("XYZ9876", response.getVehiclePlate());
         assertEquals("Revisão geral", response.getDescription());
-        assertEquals(MaintenanceType.TIRE, response.getMaintenanceType());
-        assertEquals(MaintenanceStatus.SCHEDULED, response.getStatus());
+        assertEquals(MaintenanceType.PNEU, response.getMaintenanceType());
+        assertEquals(MaintenanceStatus.AGENDADO, response.getStatus());
         assertEquals(LocalDate.parse("2026-01-10"), response.getScheduledDate());
         assertEquals(LocalDate.parse("2026-01-12"), response.getCompletedDate());
         assertEquals(BigDecimal.valueOf(900), response.getCost());
@@ -72,7 +72,7 @@ class MaintenanceMapperTest {
     void shouldUpdateEntityFromRequestDto() {
         Maintenance entity = new Maintenance();
         entity.setDescription("Antiga");
-        entity.setMaintenanceType(MaintenanceType.TIRE);
+        entity.setMaintenanceType(MaintenanceType.PNEU);
         entity.setScheduledDate(LocalDate.parse("2026-01-01"));
         entity.setCompletedDate(LocalDate.parse("2026-01-02"));
 
@@ -89,7 +89,7 @@ class MaintenanceMapperTest {
         MaintenanceMapper.updateEntity(entity, dto);
 
         assertEquals("Nova descrição", entity.getDescription());
-        assertEquals(MaintenanceType.TIRE, entity.getMaintenanceType());
+        assertEquals(MaintenanceType.PNEU, entity.getMaintenanceType());
         assertEquals(LocalDate.parse("2026-03-01"), entity.getScheduledDate());
         assertEquals(LocalDate.parse("2026-03-05"), entity.getCompletedDate());
     }

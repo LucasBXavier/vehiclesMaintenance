@@ -24,8 +24,8 @@ class MaintenanceResponseDTOTest {
                 id,
                 "ABC-1234",
                 "Troca de óleo",
-                MaintenanceType.BRAKE,
-                MaintenanceStatus.CANCELED,
+                MaintenanceType.FREIO,
+                MaintenanceStatus.CANCELADO,
                 scheduledDate,
                 completedDate,
                 BigDecimal.valueOf(350.00),
@@ -35,8 +35,8 @@ class MaintenanceResponseDTOTest {
         assertEquals(id, dto.getId());
         assertEquals("ABC-1234", dto.getVehiclePlate());
         assertEquals("Troca de óleo", dto.getDescription());
-        assertEquals(MaintenanceType.BRAKE, dto.getMaintenanceType());
-        assertEquals(MaintenanceStatus.CANCELED, dto.getStatus());
+        assertEquals(MaintenanceType.FREIO, dto.getMaintenanceType());
+        assertEquals(MaintenanceStatus.CANCELADO, dto.getStatus());
         assertEquals(scheduledDate, dto.getScheduledDate());
         assertEquals(completedDate, dto.getCompletedDate());
         assertEquals(BigDecimal.valueOf(350.00), dto.getCost());
