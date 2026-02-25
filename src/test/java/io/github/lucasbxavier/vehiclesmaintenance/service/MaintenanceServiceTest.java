@@ -2,7 +2,7 @@ package io.github.lucasbxavier.vehiclesmaintenance.service;
 
 import io.github.lucasbxavier.vehiclesmaintenance.domain.entities.Maintenance;
 import io.github.lucasbxavier.vehiclesmaintenance.domain.enums.MaintenanceStatus;
-import io.github.lucasbxavier.vehiclesmaintenance.dto.MaintenanceRequestDTO;
+import io.github.lucasbxavier.vehiclesmaintenance.dto.MaintenanceUpdateDTO;
 import io.github.lucasbxavier.vehiclesmaintenance.exception.MaintenanceNotFoundException;
 import io.github.lucasbxavier.vehiclesmaintenance.mapper.MaintenanceMapper;
 import io.github.lucasbxavier.vehiclesmaintenance.repository.MaintenanceRepository;
@@ -75,7 +75,7 @@ class MaintenanceServiceTest {
         when(repository.findByStatus(MaintenanceStatus.COMPLETO))
                 .thenReturn(List.of(new Maintenance()));
 
-        List<Maintenance> result = service.findByStatus("COMPLETED");
+        List<Maintenance> result = service.findByStatus("COMPLETO");
 
         assertEquals(1, result.size());
     }
@@ -86,22 +86,14 @@ class MaintenanceServiceTest {
                 .thenReturn(List.of());
 
         assertThrows(MaintenanceNotFoundException.class,
-                () -> service.findByStatus("CANCELED"));
+                () -> service.findByStatus("CANCELADO"));
     }
 
     @Test
     void shouldUpdateMaintenance() {
         UUID id = UUID.randomUUID();
         Maintenance entity = new Maintenance();
-        MaintenanceRequestDTO dto = new MaintenanceRequestDTO(
-                "ABC-1234",
-                "Troca de óleo",
-                "TIRE",
-                "SCHEDULED",
-                "2026-02-20",
-                "2026-02-20",
-                BigDecimal.valueOf(150)
-        );
+        MaintenanceUpdateDTO dto = new MaintenanceUpdateDTO();
         when(repository.findById(id)).thenReturn(Optional.of(entity));
 
         service.update(id, dto);

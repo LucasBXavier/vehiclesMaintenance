@@ -3,12 +3,15 @@ package io.github.lucasbxavier.vehiclesmaintenance.service;
 import io.github.lucasbxavier.vehiclesmaintenance.domain.entities.Maintenance;
 import io.github.lucasbxavier.vehiclesmaintenance.domain.enums.MaintenanceStatus;
 import io.github.lucasbxavier.vehiclesmaintenance.dto.MaintenanceRequestDTO;
+import io.github.lucasbxavier.vehiclesmaintenance.dto.MaintenanceStatusUpdateDTO;
+import io.github.lucasbxavier.vehiclesmaintenance.dto.MaintenanceUpdateDTO;
 import io.github.lucasbxavier.vehiclesmaintenance.exception.BusinessRuleException;
 import io.github.lucasbxavier.vehiclesmaintenance.exception.MaintenanceNotFoundException;
 import io.github.lucasbxavier.vehiclesmaintenance.mapper.MaintenanceMapper;
 import io.github.lucasbxavier.vehiclesmaintenance.repository.MaintenanceRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -26,7 +29,7 @@ public class MaintenanceService {
 
 
     public void createMaintenance(@RequestBody MaintenanceRequestDTO dto) {
-        var manutencao = mapper.toEntity(dto);
+        var manutencao = MaintenanceMapper.toEntity(dto);
         if (manutencao.getCompletedDate() != null &&
                 manutencao.getCompletedDate().isBefore(manutencao.getScheduledDate())) {
             throw new BusinessRuleException("A data de conclusão não pode ser anterior à data agendada");
@@ -64,13 +67,38 @@ public class MaintenanceService {
         return this.maintenanceRepository.findByVehiclePlate(vehiclePlate);
     }
 
-    public void update(UUID id, @RequestBody MaintenanceRequestDTO dto) {
-        var manutencao = maintenanceRepository.findById(id);
-        if (manutencao.isEmpty()) {
-            throw new MaintenanceNotFoundException("Manutenção não encontrada");
+    @Transactional
+    public Maintenance update(UUID id, MaintenanceUpdateDTO dto) {
+
+        Maintenance maintenance = maintenanceRepository.findById(id)
+                .orElseThrow(() -> new MaintenanceNotFoundException("Manutenção não encontrada"));
+
+        if (dto.getScheduledDate() != null) {
+            maintenance.setScheduledDate(dto.getScheduledDate());
         }
-        mapper.updateEntity(manutencao.get(), dto);
-        maintenanceRepository.save(manutencao.get());
+
+        if (dto.getCompletedDate() != null) {
+            maintenance.setCompletedDate(dto.getCompletedDate());
+        }
+
+        if (dto.getCost() != null) {
+            maintenance.setCost(dto.getCost());
+        }
+
+        if (dto.getStatus() != null) {
+            maintenance.setStatus(dto.getStatus());
+        }
+
+        return maintenanceRepository.save(maintenance);
+    }
+
+    @Transactional
+    public void updateStatus(UUID id, MaintenanceStatusUpdateDTO dto) {
+
+        Maintenance maintenance = maintenanceRepository.findById(id)
+                .orElseThrow(() -> new MaintenanceNotFoundException("Manutenção não encontrada"));
+
+        maintenance.setStatus(dto.getStatus());
     }
 
     public void deleteMaintenance(@PathVariable UUID id) {

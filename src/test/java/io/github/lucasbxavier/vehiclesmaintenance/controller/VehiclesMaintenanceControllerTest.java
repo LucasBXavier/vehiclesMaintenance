@@ -2,6 +2,7 @@ package io.github.lucasbxavier.vehiclesmaintenance.controller;
 
 import io.github.lucasbxavier.vehiclesmaintenance.domain.entities.Maintenance;
 import io.github.lucasbxavier.vehiclesmaintenance.dto.MaintenanceRequestDTO;
+import io.github.lucasbxavier.vehiclesmaintenance.dto.MaintenanceUpdateDTO;
 import io.github.lucasbxavier.vehiclesmaintenance.service.MaintenanceService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -82,7 +83,7 @@ class VehiclesMaintenanceControllerTest {
     @Test
     void shouldUpdateMaintenance() {
         UUID id = UUID.randomUUID();
-        MaintenanceRequestDTO dto = new MaintenanceRequestDTO();
+        MaintenanceUpdateDTO dto = new MaintenanceUpdateDTO();
 
         ResponseEntity<String> response = controller.updateMaintenance(id, dto);
 

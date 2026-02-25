@@ -41,6 +41,7 @@ public class MaintenanceMapper {
     }
 
     public static void updateEntity(Maintenance entity, MaintenanceRequestDTO dto) {
+        entity.setVehiclePlate(dto.getVehiclePlate());
         entity.setDescription(dto.getDescription());
         entity.setMaintenanceType(MaintenanceType.valueOf(dto.getMaintenanceType()));
         entity.setScheduledDate(LocalDate.parse(dto.getScheduledDate()));

@@ -2,6 +2,8 @@ package io.github.lucasbxavier.vehiclesmaintenance.controller;
 
 
 import io.github.lucasbxavier.vehiclesmaintenance.dto.MaintenanceRequestDTO;
+import io.github.lucasbxavier.vehiclesmaintenance.dto.MaintenanceStatusUpdateDTO;
+import io.github.lucasbxavier.vehiclesmaintenance.dto.MaintenanceUpdateDTO;
 import io.github.lucasbxavier.vehiclesmaintenance.service.MaintenanceService;
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.AllArgsConstructor;
@@ -68,10 +70,20 @@ public class VehiclesMaintenanceController {
             summary = "Atualiza a manutenção",
             description = "Atualiza uma manutenção existente com base no ID necessitando do corpo do MaintenanceRequestDTO."
     )
-    @PutMapping("/{id}")
-    public ResponseEntity<String> updateMaintenance(@PathVariable UUID id, @RequestBody MaintenanceRequestDTO dto) {
+    @PatchMapping("/{id}")
+    public ResponseEntity<String> updateMaintenance(@PathVariable UUID id, @RequestBody MaintenanceUpdateDTO dto) {
         service.update(id, dto);
         return ResponseEntity.ok().body("manutenção atualizada");
+    }
+
+    @Operation(
+            summary = "Atualiza o status da manutenção",
+            description = "Atualiza o status de uma manutenção existente com base no ID necessitando do corpo do MaintenanceStatusUpdateDTO."
+    )
+    @PatchMapping("/{id}/status")
+    public ResponseEntity<String> updateMaintenanceStatus(@PathVariable UUID id, @RequestBody MaintenanceStatusUpdateDTO dto) {
+        service.updateStatus(id, dto);
+        return ResponseEntity.ok().body("status da manutenção atualizado");
     }
 
     @Operation(

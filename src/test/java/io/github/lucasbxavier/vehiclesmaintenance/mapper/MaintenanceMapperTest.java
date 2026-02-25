@@ -21,8 +21,8 @@ class MaintenanceMapperTest {
         MaintenanceRequestDTO dto = new MaintenanceRequestDTO(
                 "ABC1234",
                 "Troca de óleo",
-                "TIRE",
-                "SCHEDULED",
+                "PNEU",
+                "AGENDADO",
                 "2026-02-20",
                 "2026-02-25",
                 BigDecimal.valueOf(150)
@@ -79,8 +79,8 @@ class MaintenanceMapperTest {
         MaintenanceRequestDTO dto = new MaintenanceRequestDTO(
                 "AAA1111",
                 "Nova descrição",
-                "TIRE",
-                "SCHEDULED",
+                "PNEU",
+                "AGENDADO",
                 "2026-03-01",
                 "2026-03-05",
                 BigDecimal.valueOf(300)
