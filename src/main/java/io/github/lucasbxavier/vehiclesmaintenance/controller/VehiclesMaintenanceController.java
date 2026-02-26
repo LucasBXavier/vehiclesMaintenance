@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/api/v1/vehicles-maintenance")
+@RequestMapping("/api/v1/admin/vehicles-maintenance")
 @AllArgsConstructor
 public class VehiclesMaintenanceController {
 

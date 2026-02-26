@@ -10,12 +10,12 @@ import org.springframework.stereotype.Component;
 @Component
 public class UserMapper {
 
-    public static User toEntity(UserRequestDTO dto) {
+    public static User toEntity(UserRequestDTO dto, String passwordHash) {
         User user = new User();
 
         user.setUsername(dto.getUsername());
         user.setEmail(dto.getEmail());
-        user.setPassword(dto.getPassword());
+        user.setPassword(passwordHash);
         user.setName(dto.getName());
         user.setRole(UserRole.valueOf(dto.getRole()));
 

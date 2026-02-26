@@ -68,7 +68,7 @@ public class MaintenanceService {
     }
 
     @Transactional
-    public Maintenance update(UUID id, MaintenanceUpdateDTO dto) {
+    public Maintenance update(@PathVariable UUID id, MaintenanceUpdateDTO dto) {
 
         Maintenance maintenance = maintenanceRepository.findById(id)
                 .orElseThrow(() -> new MaintenanceNotFoundException("Manutenção não encontrada"));
@@ -93,7 +93,7 @@ public class MaintenanceService {
     }
 
     @Transactional
-    public void updateStatus(UUID id, MaintenanceStatusUpdateDTO dto) {
+    public void updateStatus(@PathVariable UUID id, MaintenanceStatusUpdateDTO dto) {
 
         Maintenance maintenance = maintenanceRepository.findById(id)
                 .orElseThrow(() -> new MaintenanceNotFoundException("Manutenção não encontrada"));
