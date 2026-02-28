@@ -34,7 +34,7 @@ class MaintenanceTest {
         maintenance.setVehiclePlate("ABC-1234");
         maintenance.setDescription("Troca de óleo");
         maintenance.setMaintenanceType(MaintenanceType.TROCA_OLEO);
-        maintenance.setStatus(MaintenanceStatus.EM_PROGRESSO);
+        maintenance.setStatus(MaintenanceStatus.EM_ANDAMENTO);
         maintenance.setScheduledDate(scheduledDate);
         maintenance.setCost(BigDecimal.valueOf(250.00));
 
@@ -42,7 +42,7 @@ class MaintenanceTest {
         assertEquals("ABC-1234", maintenance.getVehiclePlate());
         assertEquals("Troca de óleo", maintenance.getDescription());
         assertEquals(MaintenanceType.TROCA_OLEO, maintenance.getMaintenanceType());
-        assertEquals(MaintenanceStatus.EM_PROGRESSO, maintenance.getStatus());
+        assertEquals(MaintenanceStatus.EM_ANDAMENTO, maintenance.getStatus());
         assertEquals(scheduledDate, maintenance.getScheduledDate());
         assertEquals(BigDecimal.valueOf(250.00), maintenance.getCost());
     }

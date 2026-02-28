@@ -4,7 +4,8 @@ package io.github.lucasbxavier.vehiclesmaintenance.domain.enums;
 public enum MaintenanceStatus {
 
     AGENDADO,
-    EM_PROGRESSO,
+    PENDENTE,
+    EM_ANDAMENTO,
     COMPLETO,
     CANCELADO
 }

@@ -4,5 +4,13 @@ public enum MaintenanceType {
     TROCA_OLEO,
     FREIO,
     MOTOR,
-    PNEU
+    PNEU,
+    ELETRICA,
+    SUSPENSAO,
+    TRANSMISSAO,
+    AR_CONDICIONADO,
+    REVISAO_GERAL,
+    ALINHAMENTO_BALANCEAMENTO,
+    FILTROS,
+    OUTROS
 }
