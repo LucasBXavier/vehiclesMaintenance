@@ -1,11 +1,12 @@
 package io.github.lucasbxavier.vehiclesmaintenance.controller;
 
 
-import io.github.lucasbxavier.vehiclesmaintenance.dto.MaintenanceRequestDTO;
-import io.github.lucasbxavier.vehiclesmaintenance.dto.MaintenanceStatusUpdateDTO;
-import io.github.lucasbxavier.vehiclesmaintenance.dto.MaintenanceUpdateDTO;
+import io.github.lucasbxavier.vehiclesmaintenance.dto.maintenance.MaintenanceRequestDTO;
+import io.github.lucasbxavier.vehiclesmaintenance.dto.maintenance.MaintenanceStatusUpdateDTO;
+import io.github.lucasbxavier.vehiclesmaintenance.dto.maintenance.MaintenanceUpdateDTO;
 import io.github.lucasbxavier.vehiclesmaintenance.service.MaintenanceService;
 import io.swagger.v3.oas.annotations.Operation;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -25,7 +26,7 @@ public class VehiclesMaintenanceController {
             description = "Cria um novo registro de manutenção para um veículo."
     )
     @PostMapping
-    public ResponseEntity<String> createMaintenance(@RequestBody MaintenanceRequestDTO dto) {
+    public ResponseEntity<String> createMaintenance(@RequestBody @Valid MaintenanceRequestDTO dto) {
         service.createMaintenance(dto);
         return ResponseEntity.ok().body("manutenção criada");
     }

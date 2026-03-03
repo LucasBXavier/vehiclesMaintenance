@@ -1,4 +1,4 @@
-package io.github.lucasbxavier.vehiclesmaintenance.dto;
+package io.github.lucasbxavier.vehiclesmaintenance.dto.maintenance;
 
 import io.github.lucasbxavier.vehiclesmaintenance.domain.enums.MaintenanceStatus;
 import jakarta.validation.constraints.NotNull;

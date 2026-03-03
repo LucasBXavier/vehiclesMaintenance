@@ -2,13 +2,15 @@ package io.github.lucasbxavier.vehiclesmaintenance.service;
 
 import io.github.lucasbxavier.vehiclesmaintenance.domain.entities.Maintenance;
 import io.github.lucasbxavier.vehiclesmaintenance.domain.enums.MaintenanceStatus;
-import io.github.lucasbxavier.vehiclesmaintenance.dto.MaintenanceRequestDTO;
-import io.github.lucasbxavier.vehiclesmaintenance.dto.MaintenanceStatusUpdateDTO;
-import io.github.lucasbxavier.vehiclesmaintenance.dto.MaintenanceUpdateDTO;
+import io.github.lucasbxavier.vehiclesmaintenance.dto.maintenance.MaintenanceRequestDTO;
+import io.github.lucasbxavier.vehiclesmaintenance.dto.maintenance.MaintenanceStatusUpdateDTO;
+import io.github.lucasbxavier.vehiclesmaintenance.dto.maintenance.MaintenanceUpdateDTO;
 import io.github.lucasbxavier.vehiclesmaintenance.exception.BusinessRuleException;
 import io.github.lucasbxavier.vehiclesmaintenance.exception.MaintenanceNotFoundException;
 import io.github.lucasbxavier.vehiclesmaintenance.mapper.MaintenanceMapper;
 import io.github.lucasbxavier.vehiclesmaintenance.repository.MaintenanceRepository;
+import io.github.lucasbxavier.vehiclesmaintenance.repository.UserRepository;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -25,10 +27,12 @@ import java.util.UUID;
 public class MaintenanceService {
 
     private MaintenanceRepository maintenanceRepository;
+    private CustomUserDetailsService customUserDetailsService;
+    private UserRepository userRepository;
     private MaintenanceMapper mapper;
 
 
-    public void createMaintenance(@RequestBody MaintenanceRequestDTO dto) {
+    public void createMaintenance(@RequestBody @Valid MaintenanceRequestDTO dto) {
         var manutencao = MaintenanceMapper.toEntity(dto);
         if (manutencao.getCompletedDate() != null &&
                 manutencao.getCompletedDate().isBefore(manutencao.getScheduledDate())) {

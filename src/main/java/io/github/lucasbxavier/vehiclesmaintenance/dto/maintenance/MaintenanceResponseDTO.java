@@ -1,5 +1,6 @@
-package io.github.lucasbxavier.vehiclesmaintenance.dto;
+package io.github.lucasbxavier.vehiclesmaintenance.dto.maintenance;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import io.github.lucasbxavier.vehiclesmaintenance.domain.enums.MaintenanceStatus;
 import io.github.lucasbxavier.vehiclesmaintenance.domain.enums.MaintenanceType;
 import lombok.AllArgsConstructor;
@@ -22,8 +23,11 @@ public class MaintenanceResponseDTO {
     public String description;
     public MaintenanceType maintenanceType;
     public MaintenanceStatus status;
+    @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
     public LocalDate scheduledDate;
+    @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
     public LocalDate completedDate;
     public BigDecimal cost;
+    @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
     public LocalDateTime createdAt;
 }

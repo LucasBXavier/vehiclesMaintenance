@@ -2,8 +2,8 @@ package io.github.lucasbxavier.vehiclesmaintenance.mapper;
 
 import io.github.lucasbxavier.vehiclesmaintenance.domain.entities.User;
 import io.github.lucasbxavier.vehiclesmaintenance.domain.enums.UserRole;
-import io.github.lucasbxavier.vehiclesmaintenance.dto.UserRequestDTO;
-import io.github.lucasbxavier.vehiclesmaintenance.dto.UserResponseDTO;
+import io.github.lucasbxavier.vehiclesmaintenance.dto.user.UserRequestDTO;
+import io.github.lucasbxavier.vehiclesmaintenance.dto.user.UserResponseDTO;
 import org.springframework.stereotype.Component;
 
 

@@ -1,4 +1,4 @@
-package io.github.lucasbxavier.vehiclesmaintenance.dto;
+package io.github.lucasbxavier.vehiclesmaintenance.dto.user;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

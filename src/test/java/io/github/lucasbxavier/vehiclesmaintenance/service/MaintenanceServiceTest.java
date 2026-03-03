@@ -2,7 +2,7 @@ package io.github.lucasbxavier.vehiclesmaintenance.service;
 
 import io.github.lucasbxavier.vehiclesmaintenance.domain.entities.Maintenance;
 import io.github.lucasbxavier.vehiclesmaintenance.domain.enums.MaintenanceStatus;
-import io.github.lucasbxavier.vehiclesmaintenance.dto.MaintenanceUpdateDTO;
+import io.github.lucasbxavier.vehiclesmaintenance.dto.maintenance.MaintenanceUpdateDTO;
 import io.github.lucasbxavier.vehiclesmaintenance.exception.MaintenanceNotFoundException;
 import io.github.lucasbxavier.vehiclesmaintenance.mapper.MaintenanceMapper;
 import io.github.lucasbxavier.vehiclesmaintenance.repository.MaintenanceRepository;
@@ -12,7 +12,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;

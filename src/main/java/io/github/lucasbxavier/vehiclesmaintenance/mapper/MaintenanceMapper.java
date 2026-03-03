@@ -3,8 +3,8 @@ package io.github.lucasbxavier.vehiclesmaintenance.mapper;
 import io.github.lucasbxavier.vehiclesmaintenance.domain.entities.Maintenance;
 import io.github.lucasbxavier.vehiclesmaintenance.domain.enums.MaintenanceStatus;
 import io.github.lucasbxavier.vehiclesmaintenance.domain.enums.MaintenanceType;
-import io.github.lucasbxavier.vehiclesmaintenance.dto.MaintenanceRequestDTO;
-import io.github.lucasbxavier.vehiclesmaintenance.dto.MaintenanceResponseDTO;
+import io.github.lucasbxavier.vehiclesmaintenance.dto.maintenance.MaintenanceRequestDTO;
+import io.github.lucasbxavier.vehiclesmaintenance.dto.maintenance.MaintenanceResponseDTO;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;

@@ -1,11 +1,9 @@
 {
-    "completedDate": "2026-03-06",
-    "cost": 780.5,
-    "createdAt": "2026-02-19T22:00:45.816755",
-    "description": "Substituição de pastilhas de freio e revisão do sistema",
-    "id": "dfd490e9-8d81-40c6-8fec-10d7e2fc3d7d",
-    "maintenanceType": "BRAKE",
-    "scheduledDate": "2026-03-05",
-    "status": "COMPLETED",
-    "vehiclePlate": "BRA2E19"
-  }
+  "vehiclePlate": "BRA2E19",
+  "description": "Substituição do motor",
+  "maintenanceType": "MOTOR",
+  "maintenanceStatus": "AGENDADO",
+  "scheduledDate": "2026-03-08",
+  "completedDate": "2026-03-10",
+  "cost": 780.50
+}

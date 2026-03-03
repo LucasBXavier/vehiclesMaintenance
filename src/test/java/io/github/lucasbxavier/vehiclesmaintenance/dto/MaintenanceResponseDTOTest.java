@@ -2,6 +2,7 @@ package io.github.lucasbxavier.vehiclesmaintenance.dto;
 
 import io.github.lucasbxavier.vehiclesmaintenance.domain.enums.MaintenanceStatus;
 import io.github.lucasbxavier.vehiclesmaintenance.domain.enums.MaintenanceType;
+import io.github.lucasbxavier.vehiclesmaintenance.dto.maintenance.MaintenanceResponseDTO;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;

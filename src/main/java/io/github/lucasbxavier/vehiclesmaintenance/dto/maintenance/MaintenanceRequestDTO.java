@@ -1,5 +1,6 @@
-package io.github.lucasbxavier.vehiclesmaintenance.dto;
+package io.github.lucasbxavier.vehiclesmaintenance.dto.maintenance;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -29,8 +30,10 @@ public class MaintenanceRequestDTO {
 
     @NotNull
     @NotBlank
+    @JsonFormat(pattern = "dd/MM/yyyy")
     public String scheduledDate;
 
+    @JsonFormat(pattern = "dd/MM/yyyy")
     public String completedDate;
 
     @NotNull

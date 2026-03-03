@@ -27,7 +27,7 @@ public class SecurityConfig {
                                 "/api/v1/login/**",
                                 "/swagger-ui/**",
                                 "/v3/api-docs/**").permitAll()
-                        .requestMatchers(HttpMethod.DELETE, "/api/vi/**").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.DELETE, "/api/v1/**").hasRole("ADMIN")
                         .anyRequest().authenticated()
                 )
                 .httpBasic(Customizer.withDefaults())
